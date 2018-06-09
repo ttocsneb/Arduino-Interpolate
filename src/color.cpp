@@ -12,19 +12,6 @@ uint32_t Color::to32() {
     return ((uint32_t)r << 16) | ((uint32_t)g <<  8) | b;
 }
 
-#include <Arduino.h>
-
-void Color::debug() {
-    Serial.print("Color:");
-    Serial.print(r);
-    Serial.print(", ");
-    Serial.print(g);
-    Serial.print(", ");
-    Serial.print(b);
-    Serial.print(": ");
-    Serial.println(to32(), 16);
-}
-
 //Operators
 
 Color Color::operator+(const Color &o) {

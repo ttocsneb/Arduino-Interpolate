@@ -2,7 +2,6 @@
 #define INTERPOLATE_H
 
 #include <stdint.h>
-#include <Arduino.h>
 
 enum InterpolateType {LINEAR,SMOOTH};
 
@@ -29,6 +28,8 @@ private:
 
     float delta_;
     uint32_t time_;
+
+    bool done_;
 
     //smooth interpolation
     float smooth() {
@@ -64,6 +65,7 @@ public:
         
         setInterpolation(interp);
         delta_ = 1;
+        done_ = true;
     }
 
     /**
@@ -127,6 +129,7 @@ public:
         }
 
         delta_ = 0;
+        done_ = false;
     }
 
     /**
@@ -159,6 +162,21 @@ public:
     }
 
     /**
+     * Check if the current interpolation has just finished since 
+     * the last time this has been called
+     * 
+     * @return true if just finished
+     */
+    bool justFinished() {
+        if(isDone() && !done_) {
+            done_ = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Get the delta value for the interpolation
      * 
      * @note the returned interpolation is always linear
@@ -172,7 +190,7 @@ public:
     /**
      * Get the time left in the interpolation
      * 
-     * @note returns 0 if done
+     * @note returns 0 if done_
      * 
      * @return time
      */

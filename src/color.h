@@ -44,9 +44,6 @@ public:
      */
     uint32_t to32();
 
-    [[depricated("This is used for testing only, will be removed in production builds")]]
-    void debug();
-    
     //These operators are intended for the Interpolate class.
 
     Color operator+(const Color &opperand);
