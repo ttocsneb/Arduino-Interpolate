@@ -16,6 +16,16 @@ b	KEYWORD1
 
 to32	KEYWORD2
 
+setInterpolation	KEYWORD2
+getValue	KEYWORD2
+setValue	KEYWORD2
+step	KEYWORD2
+isDone	KEYWORD2
+justFinished	KEYWORD2
+getDelta	KEYWORD2
+getTimeLeft	KEYWORD2
+getInterpolation	KEYWORD2
+
 #######################################
 # Classes (KEYWORD3)
 #######################################
@@ -28,3 +38,6 @@ SignedColor	KEYWORD3
 #######################################
 # Constants (LITERAL1)
 #######################################
+
+LINEAR	LITERAL1	RESERVED_WORD
+SMOOTH	LITERAL1	RESERVED_WORD
